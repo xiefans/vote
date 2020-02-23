@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.hangzhou.fans.dao.UserDao">
+
+    <resultMap id="userMap" type="User">
+        <id property="uuid" column="uuid"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="rowNum" column="row_num"/>
+    </resultMap>
+
+    <select id="find" resultMap="userMap" parameterType="String">
+        select * from user where username = #{username}
+    </select>
+
+    <insert id="insert">
+        insert into
+            user(uuid, username, password, create_time, update_time, row_num)
+        values
+            (#{uuid}, #{username}, #{password}, now(), now(), 0)
+    </insert>
+
+</mapper>
