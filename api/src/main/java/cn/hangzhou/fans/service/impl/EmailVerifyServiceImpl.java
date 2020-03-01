@@ -43,6 +43,4 @@ public class EmailVerifyServiceImpl implements EmailVerifyService {
         jedis.close();
         return true;
     }
-
-
 }
