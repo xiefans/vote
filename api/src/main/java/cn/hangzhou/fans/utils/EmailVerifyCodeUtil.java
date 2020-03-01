@@ -1,18 +1,21 @@
 package cn.hangzhou.fans.utils;
 
-import cn.hangzhou.fans.exception.EmailVerifyCodeFailException;
+import cn.hangzhou.fans.exception.EmailVerifyCodeSendFailException;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
+import java.util.Random;
 
 public class EmailVerifyCodeUtil {
     public static String generateCode() {
-        return String.valueOf((int) Math.random() / 9999);
+        Random random = new Random();
+        int randomNum = random.nextInt(8999) + 1000;
+        return String.valueOf(randomNum);
     }
 
-    public static void sendCode(String code, String toEmail) throws EmailVerifyCodeFailException {
+    public static void sendCode(String code, String toEmail) throws EmailVerifyCodeSendFailException {
 
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.163.com");
@@ -33,7 +36,7 @@ public class EmailVerifyCodeUtil {
             message.setContent(code, "text/html;charset=UTF-8");
             Transport.send(message);
         } catch (MessagingException e) {
-            throw new EmailVerifyCodeFailException();
+            throw new EmailVerifyCodeSendFailException();
         }
     }
 }

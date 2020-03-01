@@ -1,14 +1,13 @@
 package cn.hangzhou.fans.service;
 
 import cn.hangzhou.fans.exception.EmailVerifyCodeFailException;
+import cn.hangzhou.fans.exception.EmailVerifyCodeSendFailException;
+import cn.hangzhou.fans.exception.EmailVerifyCodeTimeLimitException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.mail.MessagingException;
 
 @Service
 public interface EmailVerifyService {
 
-    public void sendCode(String email) throws EmailVerifyCodeFailException;
+    public void sendCode(String email) throws EmailVerifyCodeSendFailException;
+    public Boolean verifyCode(String email, String code) throws EmailVerifyCodeFailException, EmailVerifyCodeTimeLimitException;
 }

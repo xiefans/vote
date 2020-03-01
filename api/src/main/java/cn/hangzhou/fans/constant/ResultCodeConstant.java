@@ -13,4 +13,6 @@ public interface ResultCodeConstant {
 
     // 验证码
     public Integer VERIFY_CODE_SEND_FAIL = 400;
+    public Integer VERIFY_CODE_LIMIT_TIME = 401;
+    public Integer VERIFY_CODE_FAIL = 402;
 }
