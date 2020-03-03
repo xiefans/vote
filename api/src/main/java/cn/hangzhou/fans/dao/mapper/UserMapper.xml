@@ -12,6 +12,7 @@
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
         <result property="rowNum" column="row_num"/>
+        <result property="salt" column="salt"/>
     </resultMap>
 
     <select id="find" resultMap="userMap" parameterType="String">

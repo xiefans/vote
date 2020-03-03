@@ -26,9 +26,9 @@ public class UserController {
     private EmailVerifyService emailVerifyService;
 
     @RequestMapping("/login")
-    public Result login(String username, String password, String code) {
+    public Result login(String username, String password) {
         try {
-            User user = userService.login(username, password, code);
+            User user = userService.login(username, password);
             return Result.success(UserVo.from(user));
         } catch (ResultException e) {
             return Result.fail(e);

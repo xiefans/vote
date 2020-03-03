@@ -7,7 +7,7 @@ import cn.hangzhou.fans.exception.UserNotFoundException;
 
 public interface UserService {
 
-    public User login(String username, String password, String code)
+    public User login(String username, String password)
             throws UserNotFoundException, PasswordFailException;
 
     public User register(String username, String password, String code)

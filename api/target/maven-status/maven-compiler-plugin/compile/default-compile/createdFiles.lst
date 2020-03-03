@@ -2,6 +2,7 @@ cn/hangzhou/fans/Vo/UserVo.class
 cn/hangzhou/fans/Dao/UserDao.class
 cn/hangzhou/fans/Exception/UserExistException.class
 cn/hangzhou/fans/Controller/EmailVerifyCodeController.class
+cn/hangzhou/fans/utils/PasswordUtil.class
 cn/hangzhou/fans/Exception/UserNotFoundException.class
 cn/hangzhou/fans/Global/Bean/Result.class
 cn/hangzhou/fans/Exception/EmailVerifyCodeFailException.class

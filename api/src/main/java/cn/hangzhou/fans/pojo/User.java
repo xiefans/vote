@@ -9,6 +9,7 @@ public class User {
     private Date createTime;
     private Date updateTime;
     private Integer rowNum;
+    private String salt;
 
     public String getUuid() {
         return uuid;
@@ -56,5 +57,13 @@ public class User {
 
     public void setRowNum(Integer rowNum) {
         this.rowNum = rowNum;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 }
