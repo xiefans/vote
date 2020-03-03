@@ -16,7 +16,9 @@ cn/hangzhou/fans/Exception/ResultException.class
 cn/hangzhou/fans/Service/impl/EmailVerifyServiceImpl.class
 cn/hangzhou/fans/utils/EmailVerifyCodeUtil.class
 cn/hangzhou/fans/Exception/PasswordFailException.class
+cn/hangzhou/fans/utils/StringUtil.class
 cn/hangzhou/fans/pojo/Vote.class
 cn/hangzhou/fans/Service/UserService.class
+cn/hangzhou/fans/utils/RandomStringUtil.class
 cn/hangzhou/fans/Service/EmailVerifyService.class
 cn/hangzhou/fans/Service/impl/UserServiceImpl.class

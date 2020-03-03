@@ -9,16 +9,28 @@ function post(obj) {
         dataType : "json",
         success : function (e) {
             if (e.code == 200) {
-                obj.success(e);
+                if (obj.success) {
+                    obj.success(e);
+                }
             } else {
-                obj.fail(e);
+                if (obj.fail) {
+                    obj.fail(e);
+                }
             }
 
-            obj.complete();
+            if (obj.complete) {
+                obj.complete();
+            }
         },
         error : function (e) {
-            obj.fail({message : "网络错误"});
-            obj.complete();
+
+            if (obj.fail) {
+                obj.fail({message : "网络错误"});
+            }
+
+            if (obj.complete) {
+                obj.complete();
+            }
         }
     });
 }

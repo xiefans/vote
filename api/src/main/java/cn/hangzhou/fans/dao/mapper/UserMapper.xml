@@ -20,9 +20,9 @@
 
     <insert id="insert">
         insert into
-            user(uuid, username, password, create_time, update_time, row_num)
+            user(uuid, username, password, create_time, update_time, row_num, salt)
         values
-            (#{uuid}, #{username}, #{password}, now(), now(), 0)
+            (#{uuid}, #{username}, #{password}, now(), now(), 0, #{salt})
     </insert>
 
 </mapper>

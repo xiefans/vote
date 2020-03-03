@@ -6,10 +6,12 @@ import cn.hangzhou.fans.exception.PasswordFailException;
 import cn.hangzhou.fans.exception.UserExistException;
 import cn.hangzhou.fans.exception.UserNotFoundException;
 import cn.hangzhou.fans.service.UserService;
+import cn.hangzhou.fans.utils.RandomStringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
 
 import java.util.UUID;
 
@@ -41,7 +43,9 @@ public class UserServiceImpl implements UserService {
         if (user != null)
             throw new UserExistException();
 
-        userDao.insert(UUID.randomUUID().toString(), username, password);
+        String salt = RandomStringUtil.random(5);
+        password = DigestUtils.md5DigestAsHex((password + salt).getBytes());
+        userDao.insert(UUID.randomUUID().toString(), username, password, salt);
         user = userDao.find(username);
         return user;
     }

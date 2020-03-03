@@ -7,7 +7,7 @@
     <title>小油龙</title>
 
 <!--    <link rel="stylesheet" type="text/css" href="../others/bootstrap/css/bootstrap.min.css">-->
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="register.css">
 </head>
 <body>
     <!-- 背景图片 -->
@@ -29,7 +29,7 @@
             <div class="input-item">
                 <input id="password" class="input-password" type="password" placeholder="请输入密码"/>
             </div>
-            <div id="login" class="login-button">登录</div>
+            <div id="login" class="login-button">注册</div>
             <div class="copyright">© 谢帆</div>
         </div>
     </div>
@@ -60,14 +60,14 @@
             let code = $("#code").val();
             let password = $("#password").val();
             post({
-                subUrl : "verify/email/verify",
+                subUrl : "user/register",
                 data : {
-                    email : email,
+                    username : email,
                     code : code,
                     password : password,
                 },
                 success : function (e) {
-                    alert("验证通过");
+                    alert("注册成功");
                 },
                 fail : function (e) {
                     alert(e.message);

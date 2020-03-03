@@ -8,5 +8,6 @@ public interface UserDao {
     public User find(String username);
     public void insert(@Param("uuid") String uuid,
                        @Param("username") String username,
-                       @Param("password") String password);
+                       @Param("password") String password,
+                       @Param("salt") String salt);
 }
