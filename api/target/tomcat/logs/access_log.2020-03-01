@@ -35,3 +35,6 @@
 0:0:0:0:0:0:0:1 - - [01/Mar/2020:21:20:48 +0800] "GET /verify/email/getCode?email=fansooxx%40163.com HTTP/1.1" 200 37 http-bio-9001-exec-4 525
 0:0:0:0:0:0:0:1 - - [01/Mar/2020:21:21:04 +0800] "POST /verify/email/verify HTTP/1.1" 200 40 http-bio-9001-exec-4 6
 0:0:0:0:0:0:0:1 - - [01/Mar/2020:21:21:08 +0800] "POST /verify/email/verify HTTP/1.1" 200 52 http-bio-9001-exec-4 4
+0:0:0:0:0:0:0:1 - - [01/Mar/2020:21:28:46 +0800] "GET /verify/email/getCode?email=fansooxx%40163.com HTTP/1.1" 200 37 http-bio-9001-exec-1 864
+0:0:0:0:0:0:0:1 - - [01/Mar/2020:21:29:38 +0800] "POST /verify/email/verify HTTP/1.1" 200 43 http-bio-9001-exec-2 7
+0:0:0:0:0:0:0:1 - - [01/Mar/2020:22:55:58 +0800] "GET /verify/email/getCode?email= HTTP/1.1" 200 46 http-bio-9001-exec-1 372
