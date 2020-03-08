@@ -1,13 +1,11 @@
 package cn.hangzhou.fans.controller;
 
-import cn.hangzhou.fans.exception.EmailVerifyCodeFailException;
-import cn.hangzhou.fans.exception.EmailVerifyCodeTimeLimitException;
 import cn.hangzhou.fans.pojo.User;
 import cn.hangzhou.fans.exception.ResultException;
-import cn.hangzhou.fans.exception.UserExistException;
 import cn.hangzhou.fans.global.bean.Result;
 import cn.hangzhou.fans.service.EmailVerifyService;
 import cn.hangzhou.fans.service.UserService;
+import cn.hangzhou.fans.utils.RandomStringUtil;
 import cn.hangzhou.fans.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +27,8 @@ public class UserController {
     public Result login(String username, String password) {
         try {
             User user = userService.login(username, password);
-            return Result.success(UserVo.from(user));
+            UserVo userVo = UserVo.from(user);
+            return Result.success(userVo);
         } catch (ResultException e) {
             return Result.fail(e);
         }
@@ -40,7 +39,9 @@ public class UserController {
         try {
             emailVerifyService.verifyCode(username, code);
             User user = userService.register(username, password, code);
-            return Result.success(UserVo.from(user));
+            UserVo userVo = UserVo.from(user);
+            userVo.setToken(RandomStringUtil.random(10));
+            return Result.success(userVo);
         } catch (ResultException e) {
             return Result.fail(e);
         }

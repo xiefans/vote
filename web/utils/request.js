@@ -15,6 +15,8 @@ function post(obj) {
             } else {
                 if (obj.fail) {
                     obj.fail(e);
+                } else {
+                    alert(e.message);
                 }
             }
 
@@ -26,6 +28,8 @@ function post(obj) {
 
             if (obj.fail) {
                 obj.fail({message : "网络错误"});
+            } else {
+                alert("网络错误");
             }
 
             if (obj.complete) {

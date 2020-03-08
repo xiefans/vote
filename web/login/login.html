@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!--    <link rel="stylesheet" type="text/css" href="../others/bootstrap/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <title>登录-小油龙</title>
+</head>
+<body>
+
+    <!-- 背景图片 -->
+    <div class="background"></div>
+    <!-- 背景遮罩 -->
+    <div class="background-cover"></div>
+
+    <!-- 登录主体 -->
+    <div class="login-container">
+        <div class="card">
+            <div class="card-title">小油龙投票系统</div>
+            <div class="input-item">
+                <input id="email" class="input-phone" type="text" placeholder="请输入邮箱">
+            </div>
+            <div class="input-item">
+                <input id="password" class="input-password" type="password" placeholder="请输入密码"/>
+            </div>
+            <div class="go-register">
+                <a href="../register/register.html">去注册</a>
+            </div>
+            <div id="login" class="login-button">登录</div>
+            <div class="copyright">© 谢帆</div>
+        </div>
+    </div>
+
+    <script src="../others/jQuery.min.js"></script>
+    <script src="../utils/request.js"></script>
+    <script src="login.js"></script>
+    <script>
+        $("#login").on("click", function (e) {
+            var email = $("#email").val();
+            var password = $("#password").val();
+
+            login({
+                username : email,
+                password : password,
+                success : function (e) {
+                    alert("登录成功");
+                }
+            })
+        });
+    </script>
+</body>
+</html>
